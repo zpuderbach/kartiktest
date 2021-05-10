@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recordTypeHaul xmlns:a="http://www.appian.com/ae/types/2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <versionUuid>61f4ebae-26e7-4cdf-ad57-ef7c297fe6f7</versionUuid>
+  <recordType a:uuid="SYSTEM_RECORD_TYPE_USER" name="User">
+    <a:pluralName>Users</a:pluralName>
+    <a:description>Directory of users</a:description>
+    <a:urlStub>U1TzGg</a:urlStub>
+    <a:source a:uuid="{http://www.appian.com/ae/types/2009}UserProfile" xsi:type="a:Datatype"/>
+    <a:listViewTemplateExpr>#"SYSTEM_SYSRULES_userRecordListViewItem"(record: rv!record)</a:listViewTemplateExpr>
+    <a:detailViewCfg>
+      <a:nameExpr>="Summary"</a:nameExpr>
+      <a:uiExpr>{}</a:uiExpr>
+      <a:visibilityExpr>=true()</a:visibilityExpr>
+      <a:urlStub>summary</a:urlStub>
+      <a:headerExpr>#"SYSTEM_SYSRULES_userRecordHeader"()</a:headerExpr>
+      <a:recordActionLaunchType>DIALOG</a:recordActionLaunchType>
+    </a:detailViewCfg>
+    <a:defaultSortInfo>
+      <field>lastName</field>
+      <ascending>true</ascending>
+    </a:defaultSortInfo>
+    <a:relatedActionCfg a:uuid="ae44b0d0-42d4-4292-b1db-070a61b5834b">
+      <a:target a:uuid="0002e607-561e-8000-fc43-7f0000014e7a" xsi:type="a:ProcessModel"/>
+      <a:contextExpr>{
+  cancel: null /* Boolean */
+}</a:contextExpr>
+      <a:visibilityExpr>=true()</a:visibilityExpr>
+      <a:iconId>f0e7</a:iconId>
+      <a:refId>ea3ec08e-5499-4378-bb16-5a6ccaa54344</a:refId>
+      <a:staticTitleString>relatedAction1</a:staticTitleString>
+      <a:staticDescriptionString/>
+      <a:referenceKey>relatedAction1</a:referenceKey>
+    </a:relatedActionCfg>
+    <a:isSystem>true</a:isSystem>
+    <a:dataSrcExpr>fn!queryuserrecord_appian_internal(rsp!query)</a:dataSrcExpr>
+    <a:facetsListExpr>#"SYSTEM_SYSRULES_userRecordFilterList"()</a:facetsListExpr>
+    <a:titleExpr/>
+    <a:defaultFiltersExpr/>
+    <a:layoutType>FEED</a:layoutType>
+    <a:security>32767</a:security>
+    <a:hideLatestNews>false</a:hideLatestNews>
+    <a:hideNewsView>false</a:hideNewsView>
+    <a:hideRelatedActionsView>false</a:hideRelatedActionsView>
+    <a:isExportable>false</a:isExportable>
+    <a:listViewSrcExpr/>
+    <a:recordViewSrcExpr/>
+    <a:recordListActionCfg a:uuid="81f1bf1f-73e5-4222-82d2-49e7009b91c6">
+      <a:staticTitle>Action1</a:staticTitle>
+      <a:staticDescription/>
+      <a:iconId>f067</a:iconId>
+      <a:target a:uuid="0002e607-5630-8000-fc45-7f0000014e7a" xsi:type="a:ProcessModel"/>
+      <a:visibilityExpr>=true()</a:visibilityExpr>
+      <a:referenceKey>action1</a:referenceKey>
+    </a:recordListActionCfg>
+    <a:iconId>f007</a:iconId>
+    <a:listAutoRefreshInterval>0.0</a:listAutoRefreshInterval>
+    <a:enabledFeatures>23</a:enabledFeatures>
+    <a:isVisibleInRecordTypeList>true</a:isVisibleInRecordTypeList>
+    <a:recordActionLaunchType>DIALOG</a:recordActionLaunchType>
+  </recordType>
+  <roleMap/>
+  <history>
+    <historyInfo versionUuid="5c22dfdb-5ee2-4706-b693-d03574d3c0f2"/>
+    <historyInfo versionUuid="e764d768-783e-48f9-8020-dbb82976f74d"/>
+    <historyInfo versionUuid="a491e653-7a65-40d7-b844-96b4f3c1f90b"/>
+    <historyInfo versionUuid="61f4ebae-26e7-4cdf-ad57-ef7c297fe6f7"/>
+  </history>
+  <migrationVersion>1</migrationVersion>
+</recordTypeHaul>
