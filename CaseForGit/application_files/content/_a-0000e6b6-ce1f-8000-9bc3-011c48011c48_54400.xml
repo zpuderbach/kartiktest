@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e6b6-ce1f-8000-9bc3-011c48011c48_54447</versionUuid>
+    <rule>
+        <name>ZP_Milestone</name>
+        <uuid>_a-0000e6b6-ce1f-8000-9bc3-011c48011c48_54400</uuid>
+        <description></description>
+        <parentUuid>_a-0000e67f-596d-8000-9bb1-011c48011c48_7514</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>a!localVariables(
+  local!employee:a!map( firstName:null, lastName:null, department:null, title:null, phoneNumber:null, startDate:null ),
+  local!currentStep: 1,
+  local!steps: {"Instructions", "Affirmation", "Firm Info", "Organization", "Worker's Activities", "Alligators", "Employment","Sales/production","shifts/imports","Customers/","Bids/contracts","comments","attachments","Summary"},
+  #"SYSTEM_SYSRULES_formLayout_v1"(
+    label: "Example: Onboarding Wizard",
+    contents:{
+      #"SYSTEM_SYSRULES_sectionLayout_v1"(
+        contents:{
+          #"SYSTEM_SYSRULES_milestoneField"(
+            steps: local!steps,
+            active: local!currentStep
+          )
+        }
+      ),
+      #"SYSTEM_SYSRULES_sectionLayout_v1"(
+        contents:{
+          #"SYSTEM_SYSRULES_columnsLayout"(
+            columns:{
+              #"SYSTEM_SYSRULES_columnLayout"(
+                contents:{
+                  #"SYSTEM_SYSRULES_textField"(
+                    label: "First Name",
+                    labelPosition: if( local!currentStep = 3, "ADJACENT","ABOVE"),
+                    value: local!employee.firstName,
+                    saveInto: local!employee.firstName,
+                    readOnly: local!currentStep = 3,
+                    required: not(local!currentStep = 3),
+                    showWhen: or( local!currentStep = {1,3} )
+                  ),
+                  #"SYSTEM_SYSRULES_textField"(
+                    label: "Last Name",
+                    labelPosition: if( local!currentStep = 3, "ADJACENT","ABOVE"),
+                    value: local!employee.lastName,
+                    saveInto: local!employee.lastName,
+                    readOnly: local!currentStep = 3,
+                    required: not(local!currentStep = 3),
+                    showWhen: or( local!currentStep = {1,3} )
+                  ),
+                  #"SYSTEM_SYSRULES_textField"(
+                    label: "Phone Number",
+                    labelPosition: if( local!currentStep = 3, "ADJACENT","ABOVE"),
+                    value: local!employee.phoneNumber,
+                    saveInto: local!employee.phoneNumber,
+                    readOnly: local!currentStep = 3,
+                    required: not(local!currentStep = 3),
+                    showWhen: or( local!currentStep = {2,3} )
+                  )
+                }
+              ),
+              #"SYSTEM_SYSRULES_columnLayout"(
+                contents:{
+                  #"SYSTEM_SYSRULES_textField"(
+                    label: "Department",
+                    labelPosition: if( local!currentStep = 3, "ADJACENT","ABOVE"),
+                    value: local!employee.department,
+                    saveInto: local!employee.department,
+                    readOnly: local!currentStep = 3,
+                    required: not(local!currentStep = 3),
+                    showWhen: or( local!currentStep = {1,3} )
+                  ),
+                  #"SYSTEM_SYSRULES_textField"(
+                    label: "Title",
+                    labelPosition: if( local!currentStep = 3, "ADJACENT","ABOVE"),
+                    value: local!employee.title,
+                    saveInto: local!employee.title,
+                    readOnly: local!currentStep = 3,
+                    required: not(local!currentStep = 3),
+                    showWhen: or( local!currentStep = {1,3} )
+                  ),
+                  #"SYSTEM_SYSRULES_dateField"(
+                    label: "Start Date",
+                    labelPosition: if( local!currentStep = 3, "ADJACENT","ABOVE"),
+                    value: local!employee.startDate,
+                    saveInto: local!employee.startDate,
+                    readOnly: local!currentStep = 3,
+                    required: not(local!currentStep = 3),
+                    showWhen: or( local!currentStep = {2,3} )
+                  )
+                }
+              )
+            }
+          )
+        }
+      )
+    },
+    buttons: #"SYSTEM_SYSRULES_ButtonLayout"(
+      primaryButtons: {
+        #"SYSTEM_SYSRULES_ButtonWidget"(
+          label: "Go Back",
+          value: local!currentStep - 1,
+          saveInto: local!currentStep,
+          showWhen: or( local!currentStep = {2,3,4,5,6} )
+        ),
+        #"SYSTEM_SYSRULES_ButtonWidget"(
+          label: if( local!currentStep = 1, "Next", "Go to Review"),
+          value: local!currentStep + 1,
+          saveInto: local!currentStep,
+          validate: true,
+          showWhen: or( local!currentStep = {1,2} )
+        ),
+        #"SYSTEM_SYSRULES_ButtonWidget"(
+          label: "Onboard Employee",
+          style: "PRIMARY",
+          submit: true,
+          showWhen: local!currentStep = 3
+        )
+      }
+    )
+  )
+)</definition>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e6b6-ce1f-8000-9bc3-011c48011c48_54428"/>
+        <historyInfo versionUuid="_a-0000e6b6-ce1f-8000-9bc3-011c48011c48_54447"/>
+    </history>
+</contentHaul>

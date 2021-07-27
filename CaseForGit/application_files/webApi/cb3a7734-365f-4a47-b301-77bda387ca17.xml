@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<webApiHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>43d925d1-de8d-415f-aec2-26dfc2891825</versionUuid>
+    <webApi a:uuid="cb3a7734-365f-4a47-b301-77bda387ca17" name="ZP_HttpStartPM">
+        <a:description></a:description>
+        <a:expression>#"SYSTEM_SYSRULES_startProcess"(
+  processModel: #"_a-0000e691-c289-8000-9bb7-011c48011c48_35671",
+  processParameters: #"SYSTEM_SYSRULES_fromJson_v1"(
+    http!request.body
+  ),
+  onSuccess: #"SYSTEM_SYSRULES_httpResponse_v1"(
+    statusCode: 200,
+    headers: {
+      #"SYSTEM_SYSRULES_httpHeader"(name: "Content-Type", value: "application/json")
+    },
+    body: #"SYSTEM_SYSRULES_toJson_v1"(
+      
+        #"urn:appian:function:v1:a:update"(
+          #"urn:appian:function:v1:a:update"(
+        fv!processInfo,
+        "pv",
+        #"urn:appian:function:v1:a:update"(
+          fv!processInfo.pv,
+          "httpResp",
+          fn!cast(
+            'type!{http://www.appian.com/ae/types/2009}Dictionary',
+            fv!processInfo.pv.httpResp
+          )
+        )
+      ),
+      "pv",
+      #"urn:appian:function:v1:a:update"(
+        fv!processInfo.pv,
+        "inteerror",
+        fn!cast(
+          'type!{http://www.appian.com/ae/types/2009}Dictionary',
+          fv!processInfo.pv.inteerror
+        )
+      ))
+    
+    )
+  ),
+  onError: #"SYSTEM_SYSRULES_httpResponse_v1"(
+    statusCode: 500,
+    headers: {
+      #"SYSTEM_SYSRULES_httpHeader"(name: "Content-Type", value: "application/json")
+    },
+    body: #"SYSTEM_SYSRULES_toJson_v1"(
+      {
+        error: "There was an error starting the process"
+      }
+    )
+  )
+)</a:expression>
+        <a:urlAlias>httpref</a:urlAlias>
+        <a:httpMethod>POST</a:httpMethod>
+        <a:system>false</a:system>
+        <a:requestBodyType>NONE</a:requestBodyType>
+    </webApi>
+    <roleMap/>
+    <typedValue>
+        <type>
+            <name>WebApiRequest?list</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <el>
+                <a:path/>
+                <a:headers>
+                    <a:name>Content-Type</a:name>
+                    <a:value>application/json</a:value>
+                </a:headers>
+                <a:body>{}</a:body>
+            </el>
+        </value>
+    </typedValue>
+    <history>
+        <historyInfo versionUuid="9d18ecd2-3db9-4dfe-9db6-9fda64b4415f"/>
+        <historyInfo versionUuid="43d925d1-de8d-415f-aec2-26dfc2891825"/>
+    </history>
+</webApiHaul>
