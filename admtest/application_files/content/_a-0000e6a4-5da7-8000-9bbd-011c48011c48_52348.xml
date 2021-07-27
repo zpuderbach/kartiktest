@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e6ad-8c51-8000-9bc0-011c48011c48_53039</versionUuid>
+    <rule>
+        <name>ZP_TestColorsInterface</name>
+        <uuid>_a-0000e6a4-5da7-8000-9bbd-011c48011c48_52348</uuid>
+        <description></description>
+        <parentUuid>_a-0000e67f-596d-8000-9bb1-011c48011c48_7514</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>a!localVariables(
+  {
+  #"SYSTEM_SYSRULES_columnsLayout"(
+    columns: {#"SYSTEM_SYSRULES_columnLayout"(
+      #"SYSTEM_SYSRULES_ButtonArrayLayout"(
+        buttons: 
+        #"SYSTEM_SYSRULES_ButtonWidget"(
+          label: "IAmAButton",
+          size: "SMALL",
+          style: "PRIMARY"
+        )
+      )
+    ),
+    #"SYSTEM_SYSRULES_columnLayout"(
+      contents: 
+      #"SYSTEM_SYSRULES_cardLayout"(
+        contents: #"SYSTEM_SYSRULES_stampField"(
+          label: "Stamp",
+          labelPosition: "COLLAPSED",
+          icon: "arrow-left",
+          contentColor: "STANDARD",
+          size: "SMALL",
+          align: "END"
+        ),
+        link: #"SYSTEM_SYSRULES_dynamicLink"(
+          
+        ),
+        style: "ACCENT",
+        showBorder: true()
+      )
+    )}
+  ),
+  #"SYSTEM_SYSRULES_boxLayout"(
+    label: "Filters",
+    style: "ACCENT",
+    isCollapsible: true()
+  )
+})</definition>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e6ad-8c51-8000-9bc0-011c48011c48_53039"/>
+    </history>
+</contentHaul>

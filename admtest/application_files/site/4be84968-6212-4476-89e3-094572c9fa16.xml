@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<siteHaul xmlns:a="http://www.appian.com/ae/types/2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <versionUuid>c7b8373d-7e13-42ec-ba0c-fd00d6413df7</versionUuid>
+  <site a:uuid="4be84968-6212-4476-89e3-094572c9fa16" name="Color Test">
+    <description/>
+    <urlStub>zp-site</urlStub>
+    <page>
+      <staticName>Home</staticName>
+      <description/>
+      <urlStub>home</urlStub>
+      <uiObject a:uuid="_a-0000e6a4-5da7-8000-9bbd-011c48011c48_52348" xsi:type="a:ContentFreeformRule"/>
+      <iconId>f001</iconId>
+      <visibilityExpr>fn!true()</visibilityExpr>
+      <pageWidth>WIDE</pageWidth>
+    </page>
+    <visibility>805306368</visibility>
+    <headerBackgroundColor>#dddddd</headerBackgroundColor>
+    <selectedTabBackgroundColor>#ffffff</selectedTabBackgroundColor>
+    <faviconRef a:uuid="SYSTEM_CONTENT_SITES_DEFAULT_FAVICON" xsi:type="a:CollaborationDocument"/>
+    <logoRef a:uuid="SYSTEM_CONTENT_SITES_DEFAULT_LOGO" xsi:type="a:CollaborationDocument"/>
+    <accentColor>#2F7DB1</accentColor>
+    <showName>false</showName>
+    <tempoLinkVisibility>HIDDEN</tempoLinkVisibility>
+    <showRecordNews>true</showRecordNews>
+    <tasksInSitesVisibility>HIDDEN</tasksInSitesVisibility>
+    <buttonShape>SQUARED</buttonShape>
+    <loadingBarColor>#1d659c</loadingBarColor>
+    <navigationBarStyle>STYLE1</navigationBarStyle>
+    <inputShape>SQUARED</inputShape>
+    <isSystem>false</isSystem>
+  </site>
+  <roleMap/>
+  <history>
+    <historyInfo versionUuid="c7b8373d-7e13-42ec-ba0c-fd00d6413df7"/>
+  </history>
+</siteHaul>
